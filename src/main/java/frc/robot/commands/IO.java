@@ -4,6 +4,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.Robot;
 
 //button numbers on the controller:
 // https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.chiefdelphi.com%2Ft%2Fhow-to-program-an-xbox-controller-to-drive-a-robot%2F131164&psig=AOvVaw28II86to-llZYujh--NhGp&ust=1759627474419000&source=images&cd=vfe&opi=89978449&ved=0CBkQjhxqFwoTCIC8oKaxiZADFQAAAAAdAAAAABAE
@@ -24,8 +25,12 @@ public class IO {
     public IO() {
         // whiletrue buttons here
 
-        shootButton.onTrue(RebuiltCommands.shootFuel);
-        shootButton.onFalse(RebuiltCommands.stopShoot);
+        if(Robot.shooterSubsystem.isShooting()) {
+            shootButton.onTrue(RebuiltCommands.stopShoot);
+        } else{
+            shootButton.onTrue(RebuiltCommands.shootFuel);
+        }
+        
 
     }
 
