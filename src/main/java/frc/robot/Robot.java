@@ -9,6 +9,9 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.subsystems.ShooterSubsystem;
+import frc.robot.commands.IO;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to each mode, as
@@ -17,9 +20,11 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  */
 public class Robot extends TimedRobot
 {
-
   private static Robot   instance;
-  private        Command m_autonomousCommand;
+  private Command m_autonomousCommand;
+
+  public static ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
+  public static IO io = new IO();
 
 
   @SuppressWarnings("unused")

@@ -52,8 +52,8 @@ public class RobotContainer
   Command driveFieldOrientedAngularVelocity = drivebase.driveFieldOriented(driveAngularVelocity);
   
   private void configureBindings()
-  {}
+  {};
 
-}
+};
 
 
