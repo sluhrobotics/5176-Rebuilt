@@ -24,7 +24,8 @@ public class IO {
     public IO() {
         // whiletrue buttons here
 
-        shootButton.whileTrue(RebuiltCommands.shootFuel);
+        shootButton.onTrue(RebuiltCommands.shootFuel);
+        shootButton.onFalse(RebuiltCommands.stopShoot);
 
     }
 
