@@ -18,19 +18,21 @@ public class ShooterSubsystem extends SubsystemBase {
     public ShooterSubsystem()
     {
 
-        SparkFlexConfig shooterLeaderConfig = new SparkFlexConfig();
-        SparkFlexConfig shooterFollowerConfig = new SparkFlexConfig();
-        
-        shooterLeaderConfig.idleMode(IdleMode.kBrake);
-        shooterLeaderConfig.voltageCompensation(12);
-        shooterLeaderConfig.smartCurrentLimit(40);
+      shooterLeader.setCANTimeout(250);
 
-        shooterFollowerConfig.apply(shooterLeaderConfig);
-        shooterFollowerConfig.follow(12, true);
+      SparkFlexConfig shooterLeaderConfig = new SparkFlexConfig();
+      SparkFlexConfig shooterFollowerConfig = new SparkFlexConfig();
+
+      shooterLeaderConfig.idleMode(IdleMode.kBrake);
+      shooterLeaderConfig.voltageCompensation(12);
+      shooterLeaderConfig.smartCurrentLimit(40);
+
+      shooterFollowerConfig.apply(shooterLeaderConfig);
+      shooterFollowerConfig.follow(12, true);
 
 
-        shooterLeader.configure(shooterLeaderConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
-        shooterFollower.configure(shooterFollowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+      shooterLeader.configure(shooterLeaderConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+      shooterFollower.configure(shooterFollowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     }
 

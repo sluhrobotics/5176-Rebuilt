@@ -27,7 +27,8 @@ public class IO {
 
         if(Robot.shooterSubsystem.isShooting()) {
             shootButton.onTrue(RebuiltCommands.stopShoot);
-        } else{
+        }
+        if (!Robot.shooterSubsystem.isShooting()) {
             shootButton.onTrue(RebuiltCommands.shootFuel);
         }
         

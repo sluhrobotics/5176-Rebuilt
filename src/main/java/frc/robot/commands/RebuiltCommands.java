@@ -8,7 +8,7 @@ import frc.robot.Robot;
 public class RebuiltCommands {
 
 
-    public static final Command shootFuel = new InstantCommand(()-> Robot.shooterSubsystem.runRoller(0.3), Robot.shooterSubsystem);
+    public static final Command shootFuel = new InstantCommand(()-> Robot.shooterSubsystem.runRoller(0.55), Robot.shooterSubsystem);
     public static final Command stopShoot = new InstantCommand(()-> Robot.shooterSubsystem.runRoller(0), Robot.shooterSubsystem);
 
 
