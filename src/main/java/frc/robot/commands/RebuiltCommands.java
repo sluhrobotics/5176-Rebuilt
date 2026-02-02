@@ -10,6 +10,9 @@ public class RebuiltCommands {
 
     public static final Command shootFuel = new InstantCommand(()-> Robot.shooterSubsystem.runRoller(0.55), Robot.shooterSubsystem);
     public static final Command stopShoot = new InstantCommand(()-> Robot.shooterSubsystem.runRoller(0), Robot.shooterSubsystem);
+    
+    public static final Command runSpindexer = new InstantCommand(()-> Robot.spindexerSubsystem.runSpindexer(0.50), Robot.spindexerSubsystem);
+     public static final Command stopSpindexer = new InstantCommand(()-> Robot.spindexerSubsystem.runSpindexer(0.0), Robot.spindexerSubsystem);
 
 
 

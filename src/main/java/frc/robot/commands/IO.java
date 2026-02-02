@@ -1,7 +1,10 @@
 
 package frc.robot.commands;
 
+import com.ctre.phoenix.ButtonMonitor;
+
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.PS4Controller.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Robot;
@@ -16,9 +19,8 @@ public class IO {
 
     public XboxController operatorXbox = new XboxController(1);
 
-    Trigger shootButton = new Trigger(() -> operatorXbox.getRightTriggerAxis() > 0.7);//XboxControl..........Right Trigger
-    
-    
+    // Trigger shootButton = new Trigger(() -> operatorXbox.getRightTriggerAxis() > 0.7);//XboxControl..........Right Trigger
+    JoystickButton shootButton = new JoystickButton(operatorXbox, 1);//XboxControler...A
     // LED Button
     // JoystickButton ledoff = new JoystickButton(operatorXbox, 4)    .whenPressed(m_turnOnLEDsCommand);
     
@@ -27,9 +29,11 @@ public class IO {
 
         if(Robot.shooterSubsystem.isShooting()) {
             shootButton.onTrue(RebuiltCommands.stopShoot);
+            shootButton.onTrue(RebuiltCommands.stopSpindexer);
         }
         if (!Robot.shooterSubsystem.isShooting()) {
             shootButton.onTrue(RebuiltCommands.shootFuel);
+            shootButton.onTrue(RebuiltCommands.runSpindexer);
         }
         
     }
