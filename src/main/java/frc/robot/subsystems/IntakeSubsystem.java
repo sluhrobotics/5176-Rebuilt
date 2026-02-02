@@ -1,6 +1,9 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.spark.config.SparkMaxConfig;
+
+import java.nio.channels.Pipe;
+
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
@@ -20,7 +23,12 @@ public class IntakeSubsystem extends SubsystemBase
         SparkFlexConfig pickUpMotorConfig = new SparkFlexConfig();
         SparkMaxConfig tiltMotorConfig = new SparkMaxConfig();
     
-        pickUpMotorConfig.idleMode(IdleMode.kCoast);
+        pickUpMotorConfig.idleMode(IdleMode.kBrake);
+        pickUpMotorConfig.voltageCompensation(12);
+        pickUpMotorConfig.smartCurrentLimit(40);
+
+
+
         tiltMotorConfig.idleMode(IdleMode.kBrake);
     }
 }
