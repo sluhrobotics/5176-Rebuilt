@@ -2,6 +2,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.ConditionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import frc.robot.Constants;
 import frc.robot.Robot;
 
 // "() ->", or lambda function, allows to put in a method value where otherwise unable
@@ -9,8 +10,8 @@ import frc.robot.Robot;
 public class RebuiltCommands {
 
 
-    public static final Command shootFuel = new InstantCommand(()-> Robot.shooterSubsystem.runRoller(0.55), Robot.shooterSubsystem);
-    public static final Command stopShoot = new InstantCommand(()-> Robot.shooterSubsystem.runRoller(0), Robot.shooterSubsystem);
+    public static final Command shootFuel = new InstantCommand(()-> Robot.shooterSubsystem.setShooterVelocity(Constants.ShooterConstants.SHOOTER_TARGET_VELOCITY_RPM), Robot.shooterSubsystem);
+    public static final Command stopShoot = new InstantCommand(()-> Robot.shooterSubsystem.setShooterVelocity(0), Robot.shooterSubsystem);
     
     public static final Command runSpindexer = new InstantCommand(()-> Robot.spindexerSubsystem.runSpindexer(0.50), Robot.spindexerSubsystem);
     public static final Command stopSpindexer = new InstantCommand(()-> Robot.spindexerSubsystem.runSpindexer(0.0), Robot.spindexerSubsystem);

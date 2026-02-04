@@ -14,6 +14,7 @@ public class IntakeSubsystem extends SubsystemBase  {
 
     
     SparkFlex intakeRoller = new SparkFlex(0, MotorType.kBrushless);
+    SparkMax intakeArm = new SparkMax(0, MotorType.kBrushless);
 
     public IntakeSubsystem(){ 
 
